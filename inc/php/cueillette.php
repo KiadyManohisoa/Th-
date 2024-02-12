@@ -39,7 +39,7 @@ function sommePoidsAncienneCueillette($idParcelle,$dateCueillette)
     $requete="select SUM(c.poids) from The_Cueillette c natural join The_Parcelle p where p.id ='$idParcelle' and c.dateCueillette < '$dateCueillette'";
     $result=mysqli_query(bdconnect(),$requete);
     $sommePoids=mysqli_fetch_assoc($result);
-    return sommePoids;
+    return $sommePoids;
 }
 function poidsRestantParcelle($idParcelle,$dateDebutPlantation,$dateCueillette,$poidsCueillette)
 {
