@@ -25,7 +25,7 @@
                     <div class="navbar-nav nav-fill">
                         <a href="#tabCueillette" data-bs-toggle="collapse" aria-controls="tabCueillette" aria-expanded="false" class="nav-link dropdown-toggle">Cueillette</a>
                         <a href="#tabDepenses" data-bs-toggle="collapse" aria-controls="tabDepenses" aria-expanded="false" class="nav-link dropdown-toggle">Dépenses</a>
-                        <a href="#" class="nav-link">Résultat</a>
+                        <a href="modele_accueilUser.php?folder=resultat&page=resultat" class="nav-link">Résultat</a>
                     </div>
                 </div>
                 
@@ -35,10 +35,10 @@
             <div class="container py-4">
                 <div class="row">
                     <div class="col text-center my-2">
-                        <a href="#" class="personnalisedLink">Historique des cueillettes</a>
+                        <a href="modele_accueilUser?folder=cueillette&page=listCueillette" class="personnalisedLink">Historique des cueillettes</a>
                     </div>
                     <div class="col text-center my-2">
-                        <a href="#" class="personnalisedLink">Saisie de cueillette</a>
+                        <a href="modele_accueilUser?folder=cueillette&page=insertCueillette" class="personnalisedLink">Saisie de cueillette</a>
                     </div>
                 </div>
             </div>
@@ -47,10 +47,10 @@
             <div class="container py-4">
                 <div class="row">
                     <div class="col text-center my-2">
-                        <a href="#" class="personnalisedLink">Historique des dépenses</a>
+                        <a href="modele_accueilUser.php?folder=depense&page=listDepense" class="personnalisedLink">Historique des dépenses</a>
                     </div>
                     <div class="col text-center my-2">
-                        <a href="#" class="personnalisedLink">Saise de dépenses</a>
+                        <a href="modele_accueilUser.php?folder=depense&page=insertDepense" class="personnalisedLink">Saise de dépenses</a>
                     </div>
                 </div>
             </div>
