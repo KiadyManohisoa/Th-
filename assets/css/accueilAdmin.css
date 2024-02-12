@@ -52,8 +52,18 @@ a{
     border-bottom: var(--semitransparentborder) 1px solid;
 }
 
-.secondaryBar .col{
+.bouton-perso{
+    background-color: var(--backgroundTwo);
+    border: none;
+    outline: none;
+    color: white;
+    padding: 1vh 2vw;
+}
 
+.form-perso{
+    padding: 7vh 4vw;
+    border-radius: 20px;
+    border: var(--semitransparentborder) 1px solid;
 }
 
 h2{
@@ -69,8 +79,26 @@ h4{
 
 /* personnalisation inputs */
 
-.form-control:focus{
+.form-control:focus,.form-select:focus{
     outline: none;
     border: 1px solid rgba(50,100,255,1);
     box-shadow: rgba(50,100,255,1) 0 0 5px;
+}
+
+.form-perso input::placeholder{
+    position: relative;
+    bottom:0;
+}
+
+.form-perso input:focus::placeholder{
+    color: rgba(50,100,255,1);
+    bottom: 50px;
+    transition: all .5s;
+}
+
+.bouton-perso:hover{
+    background-color: rgba(50,100,255,1);
+    transition: all;
+    padding: 1vh 3vw;
+    transition: all .5s;
 }

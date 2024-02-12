@@ -42,7 +42,7 @@ CREATE TABLE The_CatDepense(
    UNIQUE(nom)
 );
 
-CREATE TABLE The_SalCueilleur(
+CREATE TABLE The_SalKilo(
    id INT AUTO_INCREMENT,
    salaire DECIMAL(15,2)   NOT NULL,
    PRIMARY KEY(id)
