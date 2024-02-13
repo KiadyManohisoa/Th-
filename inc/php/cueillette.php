@@ -1,4 +1,5 @@
 <?php 
+
 function nbMois($dateMin, $dateMax)
 {   
     $dateMax = date_create(date('Y-m-d', strtotime($dateMax)));
@@ -11,44 +12,68 @@ function nbMois($dateMin, $dateMax)
     
     return $nbMois;
 }
-function getNbPieds($idParcelle){
+
+function getNbPieds($idParcelle) {
 
     $requeteS="select surface from The_Parcelle where id = '$idParcelle'";
     $resultS=mysqli_query(bdconnect(),$requeteS);
     $surface=mysqli_fetch_assoc($resultS);
 
-    $requeteO="select v.occupation from The_Variete v natural join The_Parcelle p where p.id ='$idParcelle'";
+    $requeteO="select v.occupation as occupation from The_Variete v natural join The_Parcelle p where p.id ='$idParcelle'";
     $resultO=mysqli_query(bdconnect(),$requeteO);
-    $occupation=mysqli_fetch_assoc($resultS);
+    $occupation=mysqli_fetch_assoc($resultO);
     
-    $nbPieds=$surface/$occupation;
-    return $nbPieds;
+    $nbPieds=$surface['surface']*10000/$occupation['occupation'];
+    return (int) $nbPieds;
 }
+
 function rendementParcelleParMois($idParcelle)
 {
     $nbPieds=getNbPieds($idParcelle); 
 
-    $requete="select v.rendement from The_Variete v natural join The_Parcelle p where p.id ='$idParcelle'";
+    $requete="select v.rendement as rendement from The_Variete v natural join The_Parcelle p where p.id ='$idParcelle'";
     $result=mysqli_query(bdconnect(),$requete);
     $rendement=mysqli_fetch_assoc($result);
 
-    $rendParcelle=$nbPieds*$rendement;
+    $rendParcelle=$nbPieds*$rendement['rendement'];
+    return $rendParcelle;
 }
+
 function sommePoidsAncienneCueillette($idParcelle,$dateCueillette)
 {
-    $requete="select SUM(c.poids) from The_Cueillette c natural join The_Parcelle p where p.id ='$idParcelle' and c.dateCueillette < '$dateCueillette'";
+    $requete="select SUM(c.poids) as somme from The_Cueillette c natural join The_Parcelle p where p.id ='$idParcelle' and c.dateCueillette < '$dateCueillette'";
     $result=mysqli_query(bdconnect(),$requete);
     $sommePoids=mysqli_fetch_assoc($result);
-    return $sommePoids;
+    return $sommePoids['somme'];
 }
-function poidsRestantParcelle($idParcelle,$dateDebutPlantation,$dateCueillette,$poidsCueillette)
-{
+
+function getDateDebutPlantation ($idParcelle) {
+    $requete="select p.dateDebutPlantation from The_Parcelle p where p.id ='$idParcelle'";
+    $result=mysqli_query(bdconnect(),$requete);
+    $date=mysqli_fetch_assoc($result);
+    return $date['dateDebutPlantation'];
+}
+
+function poidsRestantParcelle($idParcelle,$dateCueillette) {   
+    $dateDebutPlantation = getDateDebutPlantation($idParcelle);
     $rendementParcelle=rendementParcelleParMois($idParcelle);
     $nbMois=nbMois($dateDebutPlantation,$dateCueillette);
     $sommeAncienneCueillette=sommePoidsAncienneCueillette($idParcelle,$dateCueillette);
-    $poidsRestantParcelle=($rendementParcelle*$nbMois)-($sommeAncienneCueillette-$poidsCueillette);
+    $poidsRestantParcelle=($rendementParcelle*$nbMois)-($sommeAncienneCueillette);
 
     return $poidsRestantParcelle;
+}
+
+function verifValiditePoids($idParcelle,$dateCueillette,$poidsCueillette) {
+    $poidsrestant=poidsRestantParcelle($idParcelle,$dateCueillette,$poidsCueillette);
+    $return=[];
+    if($poidsCueillette>$poidsrestant){
+        $return['error']="Le poids qu'on essaie de récupérer est trop grande pour la parcelle";
+    }else{
+        $return['message']="Réussite";
+    }
+
+    return $return;
 }
 
 

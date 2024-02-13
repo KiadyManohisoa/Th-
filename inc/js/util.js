@@ -22,6 +22,9 @@ function insert(form) {
       else if (retour ===false) {
         alert("Erreur d\'insertion");
       }
+      if(retour['error']!=null) {
+        alert(retour['error']);
+      }
     }
   }
 
