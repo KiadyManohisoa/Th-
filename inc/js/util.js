@@ -16,3 +16,29 @@ function getXhr () {
     }
     return xhr;
 }
+
+function displayInTable (retour) {
+  var table = document.getElementById('myTable');
+
+  var thead = document.createElement('thead');
+  var tr  = document.createElement('tr');
+  for(var key in retour[0]) {
+      var th = document.createElement('th');
+      th.textContent = key;
+      tr.appendChild(th);
+  }
+  thead.appendChild(tr);
+
+  var tbody = document.createElement('tbody');
+  for(var i=0;i<retour.length;i++) {
+      var tr = document.createElement('tr');
+      for(var key in retour[i]) {
+          var td = document.createElement('td');
+          td.textContent = retour[i][key];
+          tr.appendChild(td);
+      }
+      tbody.appendChild(tr);
+  }
+  table.appendChild(thead);
+  table.appendChild(tbody);
+}
