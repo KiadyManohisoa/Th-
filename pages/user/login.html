@@ -23,7 +23,7 @@
     <div class="col-md-12" id="myMain">
         <main class="form-signin w-100 m-auto">
             <form id="myForm">
-              <h1 class="h3 mb-3 fw-normal">Connexion Admin</h1>
+              <h1 class="h3 mb-3 fw-normal">Connexion Utilisateur</h1>
           
               <div class="form-floating">
                 <input name="identifiant" type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
@@ -57,7 +57,7 @@
   
       form.addEventListener("submit", function (event) {
           event.preventDefault();
-          verifLogAdmin();
+          verifLogUser();
       });
   });
   

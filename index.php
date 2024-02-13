@@ -1,3 +1,3 @@
 <?php 
-    header("Location:pages/admin/login.html");
+    header("Location:pages/choixConnect.html");
 ?>
