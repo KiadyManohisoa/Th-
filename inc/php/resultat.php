@@ -10,7 +10,7 @@
 
     function sommeRestant($tabParcelle){
         $somme=0;
-        foreach($tabParcelle as $key=>$value){
+        foreach($tabParcelle as $value){
             $somme+=$value['poidsRestant'];
         }
         return $somme;

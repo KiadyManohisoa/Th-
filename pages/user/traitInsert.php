@@ -10,8 +10,10 @@
         }
     }
 
+    $tableauSaison=selectAll("The_Saison WHERE dateMouvement<='".$data['dateMax']."' ORDER BY dateMouvement DESC LIMIT 1");
+    $tableauMois=selectAll("The_MoisSaison WHERE idSaison='$tableauSaison[0]'");
     if($_POST['nomTable']=="The_Cueillette"){
-        $test=verifValiditePoids($data['idParcelle'],$data['dateCueillette'],$data['poids']);   
+        $test=verifValiditePoids($data['idParcelle'],$data['dateCueillette'],$data['poids'],$tableauSaison);   
         if(isset($test['error'])) {
             echo json_encode($test);
             return;

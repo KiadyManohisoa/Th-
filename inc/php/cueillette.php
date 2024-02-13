@@ -1,18 +1,40 @@
 <?php 
 
-function nbMois($dateMin, $dateMax)
-{   
+// function nbMois($dateMin, $dateMax)
+// {   
+//     $dateMax = date_create(date('Y-m-d', strtotime($dateMax)));
+//     $dateMin = date_create(date('Y-m-d', strtotime($dateMin)));
+
+//     $dateInterval = date_diff($dateMax, $dateMin);
+    
+//     // Calcul du nombre total de mois
+//     $nbMois = $dateInterval->format('%y') * 12 + $dateInterval->format('%m');
+    
+//     return $nbMois;
+// }
+
+function nbMois($dateMin,$dateMax, $tableauSaisons){
     $dateMax = date_create(date('Y-m-d', strtotime($dateMax)));
     $dateMin = date_create(date('Y-m-d', strtotime($dateMin)));
 
-    $dateInterval = date_diff($dateMax, $dateMin);
-    
-    // Calcul du nombre total de mois
-    $nbMois = $dateInterval->format('%y') * 12 + $dateInterval->format('%m');
-    
-    return $nbMois;
-}
+    $oneday = new DateInterval("P1D");
+    $bool=true;
 
+    $return=0;
+    for($date=$dateMin;true;date_add($date,$oneday)){
+        if($tableauSaisons!=null){
+            $bool=isValueOfKeyInTab("numMois",date_format($date,'m'),$tableauSaisons);
+        }
+        if(date_format($date,'d')==1 && $bool){
+            $return++;
+        }
+        if($date==$dateMax){
+            break;
+        }
+    }
+
+    return $return;
+}
 function getNbPieds($idParcelle) {
 
     $requeteS="select surface from The_Parcelle where id = '$idParcelle'";
@@ -54,18 +76,18 @@ function getDateDebutPlantation ($idParcelle) {
     return $date['dateDebutPlantation'];
 }
 
-function poidsRestantParcelle($idParcelle,$dateCueillette) {   
+function poidsRestantParcelle($idParcelle,$dateCueillette,$tableauSaisons) {   
     $dateDebutPlantation = getDateDebutPlantation($idParcelle);
     $rendementParcelle=rendementParcelleParMois($idParcelle);
-    $nbMois=nbMois($dateDebutPlantation,$dateCueillette);
+    $nbMois=nbMois($dateDebutPlantation,$dateCueillette,$tableauSaisons);
     $sommeAncienneCueillette=sommePoidsAncienneCueillette($idParcelle,$dateCueillette);
     $poidsRestantParcelle=($rendementParcelle*$nbMois)-($sommeAncienneCueillette);
 
     return $poidsRestantParcelle;
 }
 
-function verifValiditePoids($idParcelle,$dateCueillette,$poidsCueillette) {
-    $poidsrestant=poidsRestantParcelle($idParcelle,$dateCueillette,$poidsCueillette);
+function verifValiditePoids($idParcelle,$dateCueillette,$poidsCueillette,$tableauSaisons) {
+    $poidsrestant=poidsRestantParcelle($idParcelle,$dateCueillette,$tableauSaisons);
     $return=[];
     if($poidsCueillette>$poidsrestant){
         $return['error']="Le poids qu'on essaie de récupérer est trop grande pour la parcelle";
