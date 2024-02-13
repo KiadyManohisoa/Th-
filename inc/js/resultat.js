@@ -12,10 +12,16 @@ function researchByDate (form) {
         var totalPoids =document.getElementById('totalPoids');
         var prixRevient = document.getElementById('revientparKg');
         var dateRef = document.getElementById('date');
+        var benefice=document.getElementById('benefice');
+        var depenses=document.getElementById('depenses');
+        var montantvente=document.getElementById('montantVente');
 
         dateRef.textContent = retour['dateRef'];
         totalPoids.textContent = retour['totalCueillette'];
         prixRevient.textContent =" "+ retour['revientKg'];
+        benefice.textContent =" "+ retour['benefice'];
+        depenses.textContent =" "+ retour['totalCharge'];
+        montantvente.textContent =" "+ retour['totalvente'];
 
         var tableau= retour['restantParParcelle'];
         displayInTable(tableau,"tablePoidsRestant");

@@ -14,6 +14,10 @@
     $answer['restantParParcelle'] = getPoidsRestantParParcelle($dateMax);
 
     $answer['sommeRestantParParcelle'] = sommeRestant($answer['restantParParcelle']);
+    
+    $answer['benefice']=benefice($dateMin,$dateMax);
+    $answer['totalvente']=totalVente($dateMin,$dateMax);
+    $answer['totalCharge']=totalCharge($dateMin,$dateMax);
 
     echo json_encode($answer);
 ?>

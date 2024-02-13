@@ -27,6 +27,17 @@ function bonus($cueillette){
         $cueillette['mallus']=0;
 
     }
+    function totalVente($dateMin,$dateMax){
+        $cueillette=selectAll("The_Cueillette c natural join The_Variete v");
+        $somme=0;
+        foreach($cueillette as $key=>$value){
+            $somme+=$value['prixVente']*$value['poids'];
+        }
+        return $somme;
 
+    }
+    function benefice($dateMin,$dateMax){
+        return totalVente($dateMin,$dateMax)-totalCharge($dateMin,$dateMax);
+    }
 }
 
