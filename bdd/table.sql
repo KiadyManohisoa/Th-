@@ -20,6 +20,7 @@ CREATE TABLE The_Variete(
    PRIMARY KEY(id),
    UNIQUE(nom)
 );
+ALTER TABLE The_Variete ADD COLUMN prixVente DECIMAL(15,2) ;
 
 CREATE TABLE The_Parcelle(
    id INT AUTO_INCREMENT,
