@@ -5,6 +5,7 @@
         <input name="surface" type="text" class="form-control input-perso" placeholder="Surface">
     </div>
     <div class="input py-3">
+      <label for="exampleInputEmail1" class="form-label">Choix variétés : </label>
         <select name="idVariete" class="form-select" id="variete" >
             
         </select>
@@ -27,7 +28,7 @@
           if(xhr.status==200) {
             var retour = JSON.parse(xhr.responseText);
             var selectElt = document.getElementById("variete");
-            generateOptions(retour,selectElt);
+            generateOptions(retour,selectElt,"id","nom");
           }
         }
       };

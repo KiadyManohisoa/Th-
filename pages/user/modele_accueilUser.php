@@ -35,10 +35,10 @@
             <div class="container py-4">
                 <div class="row">
                     <div class="col text-center my-2">
-                        <a href="modele_accueilUser?folder=cueillette&page=listCueillette" class="personnalisedLink">Historique des cueillettes</a>
+                        <a href="modele_accueilUser.php?folder=cueillette&page=listCueillette" class="personnalisedLink">Historique des cueillettes</a>
                     </div>
                     <div class="col text-center my-2">
-                        <a href="modele_accueilUser?folder=cueillette&page=insertCueillette" class="personnalisedLink">Saisie de cueillette</a>
+                        <a href="modele_accueilUser.php?folder=cueillette&page=insertCueillette" class="personnalisedLink">Saisie de cueillette</a>
                     </div>
                 </div>
             </div>

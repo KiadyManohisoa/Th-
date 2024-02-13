@@ -1,9 +1,9 @@
-function generateOptions (retour,selectElt) {
+function generateOptions (retour,selectElt,value,text) {
   selectElt.innerHTML = null;
   for(var i=0;i<retour.length;i++) {
     var option = document.createElement('option');
-    option.setAttribute('value',retour[i]["id"]);
-    option.textContent = retour[i]["nom"];
+    option.setAttribute('value',retour[i][value]);
+    option.textContent = retour[i][text];
     selectElt.appendChild(option);
   }
 }
