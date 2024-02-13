@@ -103,6 +103,6 @@ h4{
     transition: all .5s;
 }
 
-.form-perso input{
+.form-perso input, .form-perso select{
     padding: 2vh 2vw;   
 }
