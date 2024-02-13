@@ -25,6 +25,7 @@
                         <a href="#tabParcelle" data-bs-toggle="collapse" aria-controls="tabParcelle" aria-expanded="false" class="nav-link dropdown-toggle">Parcelle</a>
                         <a href="#tabCueilleur" data-bs-toggle="collapse" aria-controls="tabCueilleur" aria-expanded="false" class="nav-link dropdown-toggle">Cueilleur</a>
                         <a href="#tabCategories" data-bs-toggle="collapse" aria-controls="tabCategories" aria-expanded="false" class="nav-link dropdown-toggle">Categories</a>
+                        <a href="#tabSalKilo" data-bs-toggle="collapse" aria-controls="tabSalKilo" aria-expanded="false" class="nav-link dropdown-toggle">Salaire par kilo</a>
                     </div>
                 </div>
 
@@ -79,24 +80,30 @@
                 </div>
             </div>
         </div>
+        <div class="collapse secondaryBar interdependantBars" id="tabSalKilo">
+            <div class="container py-4">
+                <div class="row">
+                    <div class="col text-center my-2">
+                        <a href="modele_accueilAdmin.php?folder=salKilo&page=listSalKilo" class="personnalisedLink">Voir tous les salaires par Kilo</a>
+                    </div>
+                    <div class="col text-center my-2">
+                        <a href="modele_accueilAdmin.php?folder=salKilo&page=insertSalKilo" class="personnalisedLink">Insérer un nouveau salaire par kilo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="content">
 
-        <div class="row">
-
-            <div class="col-md-2"></div>
-
-            <div class="col-md-8">
+        <div class="row justify-content-center p-5">
+            <div class="col-md-5">
 
                     <!-- content -->
                         <?php require $_GET['folder'].'/'.$_GET['page'].'.html';?>
                     <!-- content -->
 
             </div>
-
-            <div class="col-md-2"></div>
-
         </div>
 
     </div>
