@@ -11,6 +11,9 @@
     $answer['dateMax'] = $dateMax;
     $answer['totalCueillette']=calculTotalPoidsCueillette($dateMin,$dateMax);	
     $answer['revientKg'] = revientParKilo($dateMin,$dateMax);
+    $answer['restantParParcelle'] = getPoidsRestantParParcelle($dateMax);
+
+    $answer['sommeRestantParParcelle'] = sommeRestant($answer['restantParParcelle']);
 
     echo json_encode($answer);
 ?>

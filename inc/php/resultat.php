@@ -1,11 +1,20 @@
 <?php
 
-    // function getPoisRestantParParcelle ($dateMin,$dateMax) {
-    //     $list = selectAll("The_Parcelle");
-    //     foreach($list as $key=>$value) {
-    //         $value['poidsRestant'] = 
-    //     }
-    // }
+    function getPoidsRestantParParcelle ($dateMax) {
+        $list = selectAll("The_Parcelle");
+        foreach($list as $key=>$value) {
+            $list[$key]['poidsRestant'] = poidsRestantParcelle($value['id'],$dateMax);
+        }
+        return $list;
+    }
+
+    function sommeRestant($tabParcelle){
+        $somme=0;
+        foreach($tabParcelle as $key=>$value){
+            $somme+=$value['poidsRestant'];
+        }
+        return $somme;
+    }
 
     function calculTotalPoidsCueillette($dateMin,$dateMax){
         $requete="select SUM(c.poids) as somme from The_Cueillette c natural join The_Parcelle p where c.dateCueillette <= '$dateMax' and c.dateCueillette >= '$dateMin'";

@@ -68,6 +68,7 @@ function getXhr () {
 
 function displayInTable (retour,idTable) {
   var table = document.getElementById(idTable); 
+  table.innerHTML=null;
 
   var thead = document.createElement('thead');
   var tr  = document.createElement('tr');

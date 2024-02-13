@@ -17,6 +17,8 @@ function researchByDate (form) {
         totalPoids.textContent = retour['totalCueillette'];
         prixRevient.textContent =" "+ retour['revientKg'];
 
+        var tableau= retour['restantParParcelle'];
+        displayInTable(tableau,"tablePoidsRestant");
     }
   }
 
