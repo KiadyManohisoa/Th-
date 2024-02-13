@@ -11,7 +11,7 @@ function verifLogAdmin () {
         }
         else if (retour['info']!=null) {
             alert('Connexion réussie');
-            window.location.href = "accueilAdmin.html";
+            window.location.href = "modele_accueilAdmin.php?folder=accueil&page=accueil";
         }
       }
     }
