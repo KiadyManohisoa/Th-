@@ -1,5 +1,4 @@
 <?php 
-include 'connex.php';
 
 function isUtilisateur($nom,$mdp)
 {

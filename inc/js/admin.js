@@ -1,3 +1,4 @@
+// lof fonction for admin 
 function verifLogAdmin () {
     var xhr = getXhr();
   

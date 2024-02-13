@@ -1,12 +1,26 @@
-<form class="form-perso">
+<form class="form-perso" id="formEntite">
     <h4 class="text-center">Insérer un nouveau salaire</h4>
+    <input type="hidden" name="nomTable" value="the_salkilo">
     <div class="input py-3">
-        <input type="text" name="nom" class="form-control input-perso" placeholder="Salaire/Kilo">
+        <input name="salaire" type="number" class="form-control input-perso" placeholder="Salaire/Kilo">
     </div>
     <div class="input py-3">
-        <input type="date" name="dateSalaire" class="form-control input-perso">
+        <input name="dateMouvement" type="date" class="form-control input-perso">
     </div>
     <div class="input py-3 text-center">
         <input type="submit" class="bouton-perso" value="Confirmer">
     </div>
 </form>
+
+<script type="text/javascript">
+
+    window.addEventListener("load", function () {
+        var form = document.getElementById("formEntite");
+    
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            insert(form);
+        });
+    });
+    
+</script>

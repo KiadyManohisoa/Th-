@@ -1,0 +1,26 @@
+<h4 class="text-center">Historique salaire par kilos de feuilles de thé cueillis</h4>
+
+<table class="table table-bordered" id="tableSalKilo">
+
+</table>
+
+<script>
+    window.addEventListener("load", function () { 
+    
+      var xhr = getXhr();
+      xhr.onreadystatechange = function () {
+        if(xhr.readyState==4) {
+          if(xhr.status==200) {
+            var retour = JSON.parse(xhr.responseText);
+            var table = document.getElementById("tableSalKilo");
+            displayInTable(retour,table.getAttribute("id"));
+          }
+        }
+      };
+  
+      xhr.open("GET","traitList.php?nomTable=the_salkilo",true);
+  
+      xhr.send(null);
+  
+    });
+</script>

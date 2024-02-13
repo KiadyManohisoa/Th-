@@ -1,15 +1,29 @@
-<form class="form-perso">
+<form class="form-perso" id="formEntite">
     <h4 class="text-center">Insérer une nouvelle variété</h4>
+    <input type="hidden" name="nomTable" value="the_variete">
     <div class="input py-3">
-        <input type="text" name="nom" class="form-control input-perso" placeholder="Nom">
+        <input name="nom" type="text" class="form-control input-perso" placeholder="Nom">
     </div>
     <div class="input py-3">
-        <input type="number" name="occupation" class="form-control input-perso" placeholder="Occupation">
+        <input name="occupation" type="text" class="form-control input-perso" placeholder="Occupation">
     </div>
     <div class="input py-3">
-        <input type="number" name="rendement" class="form-control input-perso" placeholder="Rendement">
+        <input name="rendement" type="text" class="form-control input-perso" placeholder="Rendement">
     </div>
     <div class="input py-3 text-center">
         <input type="submit" class="bouton-perso" value="Confirmer">
     </div>
 </form>
+
+<script type="text/javascript">
+
+    window.addEventListener("load", function () {
+        var form = document.getElementById("formEntite");
+    
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            insert(form);
+        });
+    });
+    
+</script>

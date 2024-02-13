@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/css/bootstrap.css">
     <link rel="stylesheet" href="../../assets/css/accueilAdmin.css">
+    <script src="../../inc/js/function.js"> </script>
+    <script src="../../assets/js/color-modes.js"></script>
     <title>Accueil Admin</title>
 </head>
 <body>
@@ -12,7 +14,7 @@
         <nav class="navbar navbar-expand-md navbar-dark" style="background-color: red;">
             <div class="container py-1">
                 <div class="navbar-brand col">
-                    VARIETHE
+                    VARIE-THE
                 </div>
                 <div>
                     <div>
