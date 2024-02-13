@@ -45,9 +45,5 @@ CREATE TABLE The_CatDepense(
 CREATE TABLE The_SalCueilleur(
    id INT AUTO_INCREMENT,
    salaire DECIMAL(15,2)   NOT NULL,
-   idCueilleur INT NOT NULL,
-   idVariete INT NOT NULL,
-   PRIMARY KEY(id),
-   FOREIGN KEY(idCueilleur) REFERENCES The_Cueilleur(id),
-   FOREIGN KEY(idVariete) REFERENCES The_Variete(id)
+   PRIMARY KEY(id)
 );
