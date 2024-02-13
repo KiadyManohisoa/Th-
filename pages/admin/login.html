@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/footers/">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+    <script src="../../inc/js/function.js"> </script>
     <script src="../../assets/js/color-modes.js"></script>
     <title>Log in</title>
 </head>
@@ -73,15 +74,15 @@
 <div class="row">
     <div class="col-md-12" id="myMain">
         <main class="form-signin w-100 m-auto">
-            <form>
+            <form id="myForm">
               <h1 class="h3 mb-3 fw-normal">Connexion Admin</h1>
           
               <div class="form-floating">
-                <input type="email" class="form-control" name="identifiant" id="floatingInput" placeholder="name@example.com">
+                <input name="identifiant" type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
                 <label for="floatingInput">Identifiant</label>
               </div>
               <div class="form-floating">
-                <input type="password" name="motDePasse" class="form-control" id="floatingPassword" placeholder="Password">
+                <input name="motDePasse" type="password" class="form-control" id="floatingPassword" placeholder="Password">
                 <label for="floatingPassword">Mot de passe </label>
               </div>
           
@@ -98,6 +99,20 @@
 </div>
 
 <script src="../../assets/js/bootstrap.bundle.min.js"></script>
+
+<!--Window listener and login trait-->
+<script type="text/javascript">
+
+  window.addEventListener("load", function () {
+      var form = document.getElementById("myForm");
+  
+      form.addEventListener("submit", function (event) {
+          event.preventDefault();
+          verifLogAdmin();
+      });
+  });
+  
+  </script>
 
 </body>
 </html>
