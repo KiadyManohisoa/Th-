@@ -1,9 +1,10 @@
 <?php
 
     function getPoidsRestantParParcelle ($dateMax) {
+        $saison=selectAll("The_MoisSaison  m natural join The_Saison s where s.id in (select max(id) from The_Saison)");
         $list = selectAll("The_Parcelle");
         foreach($list as $key=>$value) {
-            $list[$key]['poidsRestant'] = poidsRestantParcelle($value['id'],$dateMax);
+            $list[$key]['poidsRestant'] = poidsRestantParcelle($value['id'],$dateMax,$saison);
         }
         return $list;
     }

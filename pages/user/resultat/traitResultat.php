@@ -1,5 +1,5 @@
 <?php
-    require '../../../inc/php/function.php';
+    include '../../../inc/php/function.php';
 
     header("Content-Type: application/json");   
 
@@ -15,9 +15,9 @@
 
     $answer['sommeRestantParParcelle'] = sommeRestant($answer['restantParParcelle']);
     
-    $answer['benefice']=benefice($dateMin,$dateMax);
-    $answer['totalvente']=totalVente($dateMin,$dateMax);
-    $answer['totalCharge']=totalCharge($dateMin,$dateMax);
+    $answer['benefice']= benefice($dateMin,$dateMax);
+    $answer['totalvente']=totalvente($dateMin,$dateMax);
+    $answer['totalCharge']=totalCharges($dateMin,$dateMax);
 
     echo json_encode($answer);
 ?>

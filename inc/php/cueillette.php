@@ -90,12 +90,19 @@ function verifValiditePoids($idParcelle,$dateCueillette,$poidsCueillette,$tablea
     $poidsrestant=poidsRestantParcelle($idParcelle,$dateCueillette,$tableauSaisons);
     $return=[];
     if($poidsCueillette>$poidsrestant){
-        $return['error']="Le poids qu'on essaie de récupérer est trop grande pour la parcelle";
-    }else{
+        $return['error']="Le poids qu'on essaie de recuperer est trop grand pour la parcelle";
+    }
+
+    else{
         $return['message']="Réussite";
     }
 
     return $return;
+}
+
+function verifValiditePoids2($idParcelle,$dateCueillette,$poidsCueillette) {
+    $saison=selectAll("The_MoisSaison  m natural join The_Saison s where s.id in (select max(id) from The_Saison)");
+    return verifValiditePoids($idParcelle, $dateCueillette, $poidsCueillette,$saison);
 }
 
 
