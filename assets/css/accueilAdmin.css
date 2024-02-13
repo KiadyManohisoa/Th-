@@ -106,3 +106,7 @@ h4{
 .form-perso input, .form-perso select{
     padding: 2vh 2vw;   
 }
+
+#encadrFooter{
+    margin-top: 50vh;
+}
