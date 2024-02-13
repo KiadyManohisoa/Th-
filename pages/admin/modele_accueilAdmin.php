@@ -96,9 +96,9 @@
         </div>
     </div>
 
-    <div id="content">
+    <div id="content" class="container-fluid">
 
-        <div class="row justify-content-center p-5">
+        <div class="row justify-content-center pt-5 pb-4">
             <div class="col-md-5">
 
                     <!-- content -->
@@ -109,8 +109,12 @@
         </div>
 
     </div>
+    <div class="footer">
+        
+    </div>
 </body>
 </html>
+
 <script src="../../assets/js/bootstrap.bundle.js"></script>
 <script>
     var allObj=document.getElementsByClassName("interdependantBars");

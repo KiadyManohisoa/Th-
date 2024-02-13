@@ -60,10 +60,17 @@ a{
     padding: 1vh 2vw;
 }
 
+.bouton-perso:hover{
+    background-color: rgba(50,100,255,1);
+    transition: all;
+    padding: 2vh 3vw;
+    transition: all .5s;
+}
+
 .form-perso{
     padding: 7vh 4vw;
     border-radius: 20px;
-    border: var(--semitransparentborder) 1px solid;
+    box-shadow: rgba(25,25,25,.2) 0 0 20px;
 }
 
 h2{
@@ -96,9 +103,6 @@ h4{
     transition: all .5s;
 }
 
-.bouton-perso:hover{
-    background-color: rgba(50,100,255,1);
-    transition: all;
-    padding: 1vh 3vw;
-    transition: all .5s;
+.form-perso input{
+    padding: 2vh 2vw;   
 }
