@@ -52,5 +52,7 @@ CREATE TABLE The_SalKilo(
 CREATE TABLE The_Cueillette (
    id INT PRIMARY KEY AUTO_INCREMENT,
    dateCueillette DATE NOT NULL,
-   poids DECIMAL(15,2) NOT NULL
+   poids DECIMAL(15,2) NOT NULL,
+   idCueilleur INT REFERENCES The_Cueilleur(id),
+   idParcelle INT REFERENCES The_Parcelle(id) 
 );
