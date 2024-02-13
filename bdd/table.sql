@@ -1,6 +1,6 @@
-create database the;
+--create database the;
 
-use the;
+use db_p16_ETU002375;
 
 CREATE TABLE The_Connection(
    id INT AUTO_INCREMENT,
