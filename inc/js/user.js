@@ -12,7 +12,7 @@ function verifLogUser () {
         }
         else if (retour['info']!=null) {
             alert('Connexion réussie');
-            window.location.href = "modele_accueilUser.php";
+            window.location.href = "modele_accueilUser.php?folder=accueil&page=accueil";
         }
       }
     }

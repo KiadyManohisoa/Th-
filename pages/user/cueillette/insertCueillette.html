@@ -1,0 +1,44 @@
+<script>
+    window.addEventListener("load", function () { 
+        
+    //liste des cueilleurs
+      var xhr = getXhr();
+      xhr.onreadystatechange = function () {
+        if(xhr.readyState==4) {
+          if(xhr.status==200) {
+            var retour = JSON.parse(xhr.responseText);
+            var selectElt = document.getElementById("cueilleur");
+            generateOptions(retour,selectElt);
+          }
+        }
+      };
+  
+      xhr.open("GET","traitList.php?nomTable=The_Cueilleur",false);
+  
+      xhr.send(null);
+
+      //liste des parcelles 
+      var xhr = getXhr();
+      xhr.onreadystatechange = function () {
+        if(xhr.readyState==4) {
+          if(xhr.status==200) {
+            var retour = JSON.parse(xhr.responseText);
+            var selectElt = document.getElementById("parcelle");
+            generateOptions(retour,selectElt);
+          }
+        }
+      };
+  
+      xhr.open("GET","traitList.php?nomTable=The_Parcelle",false);
+  
+      xhr.send(null);
+
+    //   var form = document.getElementById("formEntite");
+    
+    //     form.addEventListener("submit", function (event) {
+    //         event.preventDefault();
+    //         insert(form);
+    //     });
+  
+    });
+</script>
