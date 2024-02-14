@@ -1,18 +1,19 @@
 <form class="form-perso" id="formEntite">
-    <h4 class="text-center">Insérer une nouvelle variété</h4>
-    <input type="hidden" name="nomTable" value="The_Variete">
+    <h4 class="text-center">Insérer une nouvelle configuration pour les cueilleurs</h4>
+    <input type="hidden" name="nomTable" value="The_ConfigPoids">
+
     <div class="input py-3">
-        <input name="nom" type="text" class="form-control input-perso" placeholder="Nom">
+        <input name="poidsMinimal" type="text" class="form-control input-perso" placeholder="Poids minimal journalier">
     </div>
+
     <div class="input py-3">
-        <input name="occupation" type="text" class="form-control input-perso" placeholder="Occupation">
+        <input name="bonus" type="text" class="form-control input-perso" placeholder="% de bonus">
     </div>
+
     <div class="input py-3">
-        <input name="rendement" type="text" class="form-control input-perso" placeholder="Rendement">
+        <input name="mallus" type="text" class="form-control input-perso" placeholder="% de mallus">
     </div>
-    <div class="input py-3">
-        <input name="prixVente" type="text" class="form-control input-perso" placeholder="Prix de vente">
-    </div>
+
     <div class="input py-3 text-center">
         <input type="submit" class="bouton-perso" value="Confirmer">
     </div>

@@ -23,6 +23,7 @@
                 </div>
                 <div id="navigationBar" class="justify-content-center collapse navbar-collapse col">
                     <div class="navbar-nav nav-fill">
+                        <a href="#tabConfig" data-bs-toggle="collapse" aria-controls="tabConfig" aria-expanded="false" class="nav-link dropdown-toggle">Configuration</a>
                         <a href="modele_accueilAdmin.php?folder=saison&page=insertSaison" aria-expanded="false" class="nav-link dropdown-toggle">Saison</a>
                         <a href="#tabVariete" data-bs-toggle="collapse" aria-controls="tabVariete" aria-expanded="false" class="nav-link dropdown-toggle">Variété</a>
                         <a href="#tabParcelle" data-bs-toggle="collapse" aria-controls="tabParcelle" aria-expanded="false" class="nav-link dropdown-toggle">Parcelle</a>
@@ -31,10 +32,22 @@
                         <a href="#tabSalKilo" data-bs-toggle="collapse" aria-controls="tabSalKilo" aria-expanded="false" class="nav-link dropdown-toggle">Salaire par kilo</a>
                     </div>
                 </div>
-
-                
             </div>
         </nav>
+
+        <div class="collapse secondaryBar interdependantBars" id="tabConfig">
+            <div class="container py-4">
+                <div class="row">
+                    <!--<div class="col text-center my-2">
+                        <a href="modele_accueilAdmin.php?folder=variete&page=listVariete" class="personnalisedLink">Voir toutes les variétés</a>
+                    </div>-->
+                    <div class="col text-center my-2">
+                        <a href="modele_accueilAdmin.php?folder=config&page=insertConfig" class="personnalisedLink">Insérer une nouvelle configuration</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="collapse secondaryBar interdependantBars" id="tabVariete">
             <div class="container py-4">
                 <div class="row">

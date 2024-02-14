@@ -77,3 +77,11 @@ CREATE TABLE The_MoisSaison(
    PRIMARY KEY(id),
    FOREIGN KEY(idSaison) REFERENCES The_Saison(id)
 );
+
+CREATE TABLE The_ConfigPoids(
+   id INT AUTO_INCREMENT,
+   poidsMinimal DECIMAL(14,2)   NOT NULL,
+   bonus SMALLINT NOT NULL,
+   mallus SMALLINT NOT NULL,
+   PRIMARY KEY(id)
+);
