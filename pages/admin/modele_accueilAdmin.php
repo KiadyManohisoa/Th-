@@ -32,6 +32,9 @@
                         <a href="#tabSalKilo" data-bs-toggle="collapse" aria-controls="tabSalKilo" aria-expanded="false" class="nav-link dropdown-toggle">Salaire par kilo</a>
                     </div>
                 </div>
+                <div>
+                    <a href="logout.php" class="personnalisedLink">Se déconnecter</a>
+                </div>
             </div>
         </nav>
 

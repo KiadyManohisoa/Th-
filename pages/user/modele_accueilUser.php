@@ -28,7 +28,9 @@
                         <a href="modele_accueilUser.php?folder=resultat&page=resultat" class="nav-link">Résultat</a>
                     </div>
                 </div>
-                
+                <div>
+                    <a href="logout.php" class="personnalisedLink">Se déconnecter</a>
+                </div>
             </div>
         </nav>
         <div class="collapse secondaryBar interdependantBars" id="tabCueillette">
