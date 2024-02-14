@@ -1,9 +1,10 @@
 <?php
 
     function getPoidsRestantParParcelle ($dateMax) {
+        $saison=selectAll("The_MoisSaison  m natural join The_Saison s where s.id in (select max(id) from The_Saison)");
         $list = selectAll("The_Parcelle");
         foreach($list as $key=>$value) {
-            $list[$key]['poidsRestant'] = poidsRestantParcelle($value['id'],$dateMax);
+            $list[$key]['poidsRestant'] = poidsRestantParcelle($value['id'],$dateMax,$saison);
         }
         return $list;
     }
@@ -28,17 +29,14 @@
     }
 
     function totalSalaire($dateMin,$dateMax){
-        $requete="SELECT salaire FROM The_SalKilo WHERE dateMouvement <= '$dateMax' AND dateMouvement >= '$dateMin' ORDER BY dateMouvement DESC LIMIT 1";
-        $result= mysqli_query(bdconnect(),$requete);
-        if(mysqli_num_rows($result)==0){
-            $salaire=0;
-        }
-        else{
-        $salaire=mysqli_fetch_assoc($result)["salaire"];
+        $salaire=selectAll("The_Cueillette");
+        $somme=0;
+        foreach($salaire as $key=>$value){
+            $somme+=$value['commission']+$value['bonus']+$value['mallus'];
 
         }
 
-        return $salaire*calculTotalPoidsCueillette($dateMin,$dateMax);
+        return $somme;
     }
 
     function totalDepenses($dateMin,$dateMax) {

@@ -11,12 +11,12 @@
     }
 
     if($_POST['nomTable']=="The_Cueillette"){
-        $test=verifValiditePoids($data['idParcelle'],$data['dateCueillette'],$data['poids']);
+        $test=verifValiditePoids2($data['idParcelle'],$data['dateCueillette'],$data['poids']);
         if(isset($test['error'])) {
             echo json_encode($test);
             return;
         }
-        bonus($data);
+        $data=bonus($data);
     }
 
     $rep = insert($_POST['nomTable'], $data);
