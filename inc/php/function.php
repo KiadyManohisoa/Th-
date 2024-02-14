@@ -5,4 +5,5 @@
     include 'crud.php';
     include 'cueillette.php';
     include 'resultat.php';
+    include 'payement.php';
 ?>

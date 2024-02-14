@@ -1,0 +1,33 @@
+<form class="form-perso" id="formEntite">
+    <h4 class="text-center">Rechercher à partir des dates</h4>
+    <input type="hidden" name="nomTable" value="v_payement">
+    <div class="input py-3">
+        <input type="date" name="dateMin" class="form-control input-perso" placeholder="">
+    </div>
+    <div class="input py-3">
+        <input type="date" name="dateMax" class="form-control input-perso" placeholder="">
+    </div>
+    <div class="input py-3 text-center">
+        <input type="submit" class="bouton-perso" value="Rechercher">
+    </div>
+</form>
+
+<script>
+    window.addEventListener("load", function () { 
+        
+        //recherche via la date 
+        var form = document.getElementById("formEntite");
+        form.addEventListener("submit", function (event) {
+        event.preventDefault();
+            researchPayement(form);
+        });
+    
+    });
+  
+  </script>
+
+<h4 class="text-center">Liste des payements pour les cueilleurs</h4>
+
+<table class="table table-bordered" id="tablePayement">
+
+</table>

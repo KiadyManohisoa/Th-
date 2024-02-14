@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 <form class="form-perso" id="formEntite">
     <h4 class="text-center">Saisir une cueillette</h4>
     <input type="hidden" name="nomTable" value="The_Cueillette">
@@ -33,23 +32,13 @@
     window.addEventListener("load", function () { 
         
     //liste des cueilleurs
-=======
-<script>
-    window.addEventListener("load", function () { 
-        
-    //liste de tous les cueilleurs
->>>>>>> Stashed changes
       var xhr = getXhr();
       xhr.onreadystatechange = function () {
         if(xhr.readyState==4) {
           if(xhr.status==200) {
             var retour = JSON.parse(xhr.responseText);
             var selectElt = document.getElementById("cueilleur");
-<<<<<<< Updated upstream
             generateOptions(retour,selectElt,"id","nom");
-=======
-            generateOptions(retour,selectElt);
->>>>>>> Stashed changes
           }
         }
       };
@@ -58,23 +47,14 @@
   
       xhr.send(null);
 
-<<<<<<< Updated upstream
       //liste des parcelles 
       var xhr = getXhr();
-=======
-    //liste de toutes les parcelles
-    var xhr = getXhr();
->>>>>>> Stashed changes
       xhr.onreadystatechange = function () {
         if(xhr.readyState==4) {
           if(xhr.status==200) {
             var retour = JSON.parse(xhr.responseText);
             var selectElt = document.getElementById("parcelle");
-<<<<<<< Updated upstream
             generateOptions(retour,selectElt,"id","id");
-=======
-            generateOptions(retour,selectElt);
->>>>>>> Stashed changes
           }
         }
       };
@@ -83,7 +63,6 @@
   
       xhr.send(null);
 
-<<<<<<< Updated upstream
       //saisie cueillette à condition poids suffisant
       var form = document.getElementById("formEntite");
     
@@ -93,16 +72,4 @@
         });
   
     });
-=======
-
-    //   var form = document.getElementById("formEntite");
-    
-    //     form.addEventListener("submit", function (event) {
-    //         event.preventDefault();
-    //         insert(form);
-    //     });
-  
-    });
-
->>>>>>> Stashed changes
 </script>
