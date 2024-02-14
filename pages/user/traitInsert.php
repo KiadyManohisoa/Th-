@@ -5,6 +5,7 @@
 
     $data = array();
     foreach($_POST as $key => $val) {
+<<<<<<< Updated upstream
         if($key != 'nomTable'){
             $data[$key] = $_POST[$key];
         }
@@ -16,9 +17,17 @@
             echo json_encode($test);
             return;
         }    
+=======
+        if($key != 'nomTable')
+        $data[$key] = $_POST[$key];
+>>>>>>> Stashed changes
     }
 
     $rep = insert($_POST['nomTable'], $data);
 
     echo json_encode($rep);
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 ?>
