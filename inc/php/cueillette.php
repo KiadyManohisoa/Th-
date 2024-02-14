@@ -41,7 +41,7 @@ function getNbPieds($idParcelle) {
     $resultS=mysqli_query(bdconnect(),$requeteS);
     $surface=mysqli_fetch_assoc($resultS);
 
-    $requeteO="select v.occupation as occupation from The_Variete v natural join The_Parcelle p where p.id ='$idParcelle'";
+    $requeteO="select v.occupation as occupation from The_Variete v join The_Parcelle p on p.idVariete=v.id where p.id ='$idParcelle'";
     $resultO=mysqli_query(bdconnect(),$requeteO);
     $occupation=mysqli_fetch_assoc($resultO);
     
@@ -53,7 +53,7 @@ function rendementParcelleParMois($idParcelle)
 {
     $nbPieds=getNbPieds($idParcelle); 
 
-    $requete="select v.rendement as rendement from The_Variete v natural join The_Parcelle p where p.id ='$idParcelle'";
+    $requete="select v.rendement as rendement from The_Variete v join The_Parcelle p on idVariete=v.id where p.id ='$idParcelle'";
     $result=mysqli_query(bdconnect(),$requete);
     $rendement=mysqli_fetch_assoc($result);
 
@@ -63,7 +63,7 @@ function rendementParcelleParMois($idParcelle)
 
 function sommePoidsAncienneCueillette($idParcelle,$dateCueillette)
 {
-    $requete="select SUM(c.poids) as somme from The_Cueillette c natural join The_Parcelle p where p.id ='$idParcelle' and c.dateCueillette < '$dateCueillette'";
+    $requete="select SUM(c.poids) as somme from The_Cueillette c join The_Parcelle p on c.idParcelle=p.id where p.id ='$idParcelle' and c.dateCueillette < '$dateCueillette'";
     $result=mysqli_query(bdconnect(),$requete);
     $sommePoids=mysqli_fetch_assoc($result);
     return $sommePoids['somme'];

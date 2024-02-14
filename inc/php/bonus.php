@@ -2,11 +2,17 @@
 
 function surplus($poidsMin,$poidsAzo,$salKilo,$pourcentageBonus){
     $azahonaBonus=$poidsAzo-$poidsMin;
-    return $azahonaBonus*$pourcentageBonus/100;
+    echo "AZAHONA:".$azahonaBonus;
+    $salaire=$salKilo['salaire']*$azahonaBonus;
+    echo "Salaire".$salaire;
+    return $salaire*($pourcentageBonus/100);
 }
 function sousMoins($poidsMin,$poidsAzo,$salKilo,$pourcentageMallus){
     $azahonaMallus=$poidsAzo-$poidsMin;
-    return $azahonaMallus*$pourcentageMallus/100;
+    echo "AZAHONA:".$azahonaMallus;
+    $salaire=$salKilo['salaire']*$azahonaMallus;
+    echo "Salaire".$salaire;
+    return $salaire*($pourcentageMallus/100);
 } 
 function bonus($cueillette){
     $config=selectAll("The_ConfigPoids WHERE id in (SELECT MAX(id) FROM The_ConfigPoids)")[0];
@@ -19,6 +25,7 @@ function bonus($cueillette){
     }
     else if($config['poidsMinimal']>$cueillette['poids']){
         $cueillette['mallus']=sousMoins($config['poidsMinimal'],$cueillette['poids'],$salKilo,$config['mallus']);
+        echo("MALLUS".$cueillette['mallus']);
         $cueillette['bonus']=0;
 
     }
@@ -30,7 +37,7 @@ function bonus($cueillette){
     return $cueillette;
 }
 function totalVente($dateMin,$dateMax){
-    $cueillette=selectAll("The_Cueillette c natural join The_Variete v");
+    $cueillette=selectAll("The_Cueillette c join The_Parcelle p on p.id=c.idParcelle join The_Variete v on p.idVariete = v.id");
     $somme=0;
     foreach($cueillette as $key=>$value){
         $somme+=$value['prixVente']*$value['poids'];

@@ -18,13 +18,12 @@
     }
 
     function calculTotalPoidsCueillette($dateMin,$dateMax){
-        $requete="select SUM(c.poids) as somme from The_Cueillette c natural join The_Parcelle p where c.dateCueillette <= '$dateMax' and c.dateCueillette >= '$dateMin'";
+        $requete="select SUM(c.poids) as somme from The_Cueillette c join The_Parcelle p on c.idParcelle=p.id where c.dateCueillette <= '$dateMax' and c.dateCueillette >= '$dateMin'";
         $result=mysqli_query(bdconnect(),$requete);
 
         if(mysqli_num_rows($result)==0){ return 0; }
 
         $sommePoids=mysqli_fetch_assoc($result);
-        
         return $sommePoids['somme'];
     }
 

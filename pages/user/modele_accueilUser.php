@@ -49,9 +49,6 @@
             <div class="container py-4">
                 <div class="row">
                     <div class="col text-center my-2">
-                        <a href="modele_accueilUser.php?folder=cueillette&page=listCueillette" class="personnalisedLink">Historique des cueillettes</a>
-                    </div>
-                    <div class="col text-center my-2">
                         <a href="modele_accueilUser.php?folder=cueillette&page=insertCueillette" class="personnalisedLink">Saisie de cueillette</a>
                     </div>
                 </div>
@@ -60,9 +57,6 @@
         <div class="collapse secondaryBar interdependantBars" id="tabDepenses">
             <div class="container py-4">
                 <div class="row">
-                    <div class="col text-center my-2">
-                        <a href="modele_accueilUser.php?folder=depense&page=listDepense" class="personnalisedLink">Historique des dépenses</a>
-                    </div>
                     <div class="col text-center my-2">
                         <a href="modele_accueilUser.php?folder=depense&page=insertDepense" class="personnalisedLink">Saise de dépenses</a>
                     </div>
