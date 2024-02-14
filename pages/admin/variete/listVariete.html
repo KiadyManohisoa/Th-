@@ -1,0 +1,26 @@
+<h4 class="text-center">Liste des variétés</h4>
+
+<table class="table table-bordered" id="tableVariete">
+
+</table>
+
+<script>
+    window.addEventListener("load", function () { 
+    
+      var xhr = getXhr();
+      xhr.onreadystatechange = function () {
+        if(xhr.readyState==4) {
+          if(xhr.status==200) {
+            var retour = JSON.parse(xhr.responseText);
+            var table = document.getElementById("tableVariete");
+            displayInTable(retour,table.getAttribute("id"));
+          }
+        }
+      };
+  
+      xhr.open("GET","traitList.php?nomTable=The_Variete",true);
+  
+      xhr.send(null);
+  
+    });
+</script>

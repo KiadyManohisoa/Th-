@@ -1,6 +1,6 @@
-create database the;
+--create database the;
 
-use the;
+use db_p16_ETU002375;
 
 CREATE TABLE The_Connection(
    id INT AUTO_INCREMENT,
@@ -25,6 +25,7 @@ CREATE TABLE The_Parcelle(
    id INT AUTO_INCREMENT,
    surface DECIMAL(20,6)   NOT NULL,
    idVariete INT NOT NULL,
+   dateDebutPlantation DATE NOT NULL,
    PRIMARY KEY(id),
    FOREIGN KEY(idVariete) REFERENCES The_Variete(id)
 );
@@ -42,8 +43,48 @@ CREATE TABLE The_CatDepense(
    UNIQUE(nom)
 );
 
-CREATE TABLE The_SalCueilleur(
-   id INT AUTO_INCREMENT,
+CREATE TABLE The_SalKilo(
+   id INT PRIMARY KEY AUTO_INCREMENT,
    salaire DECIMAL(15,2)   NOT NULL,
+   dateMouvement DATE NOT NULL
+);
+
+CREATE TABLE The_Cueillette (
+   id INT PRIMARY KEY AUTO_INCREMENT,
+   dateCueillette DATE NOT NULL,
+   poids DECIMAL(15,2) NOT NULL,
+   bonus SMALLINT NOT NULL,
+   mallus SMALLINT NOT NULL,
+   commission DECIMAL(14,2) NOT NULL,
+   idCueilleur INT REFERENCES The_Cueilleur(id),
+   idParcelle INT REFERENCES The_Parcelle(id) 
+);
+
+CREATE TABLE The_Depense (
+   id INT PRIMARY KEY AUTO_INCREMENT,
+   dateDepense DATE NOT NULL,
+   idCatDepense INT REFERENCES The_CatDepense(id),
+   montant DECIMAL(15,2) NOT NULL
+);
+
+CREATE TABLE The_Saison(
+   id INT AUTO_INCREMENT,
+   dateMouvement DATE NOT NULL,
+   PRIMARY KEY(id)
+);
+
+CREATE TABLE The_MoisSaison(
+   id INT AUTO_INCREMENT,
+   idSaison INT NOT NULL,
+   numMois TINYINT NOT NULL,
+   PRIMARY KEY(id),
+   FOREIGN KEY(idSaison) REFERENCES The_Saison(id)
+);
+
+CREATE TABLE The_ConfigPoids(
+   id INT AUTO_INCREMENT,
+   poidsMinimal DECIMAL(14,2)   NOT NULL,
+   bonus SMALLINT NOT NULL,
+   mallus SMALLINT NOT NULL,
    PRIMARY KEY(id)
 );

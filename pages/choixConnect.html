@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+    <link rel="stylesheet" href="../assets/css/login.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/cheatsheet/">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/footers/">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+    <link rel="stylesheet" href="../assets/css/accueilAdmin.css">
+    <script src="../../inc/js/function.js"> </script>
+    <script src="../assets/js/color-modes.js"></script>
+    <title>Log in</title>
+</head>
+<body>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 col-12" id="myMain">
+          <main class="form-signin m-auto">
+              <form id="myForm" class="row text-center">
+              <h4 class="mb-5 text-center">Qui êtes vous ?</h4>
+                  <div class="col-md-6 my-md-0">
+                    <a class="personnalisedLink" href="admin/login.html">Admin</a>
+                  </div>
+                  <div class="col-md-6 my-md-0 my-4">
+                      <a class="personnalisedLink" href="user/login.html">Utilisateur</a>
+                  </div>
+              </form>
+          </main>
+      </div>
+    </div>
+  </div>
+
+<script src="../assets/js/bootstrap.bundle.min.js"></script>
+
+<!--Window listener and login trait-->
+<script type="text/javascript">
+
+  window.addEventListener("load", function () {
+      var form = document.getElementById("myForm");
+  
+      form.addEventListener("submit", function (event) {
+          event.preventDefault();
+          verifLogAdmin();
+      });
+  });
+  
+  </script>
+
+</body>
+</html>

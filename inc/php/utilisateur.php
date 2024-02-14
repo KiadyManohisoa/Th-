@@ -1,19 +1,19 @@
 <?php 
-include 'connex.php';
 
 function isUtilisateur($nom,$mdp)
 {
-    $requete ="select* from The_Connection where nomUser = '$nom' and motDePasse = MD5('$mdp') and type='u'";
+    $requete ="select * from The_Connection where nomUser = '$nom' and motDePasse = MD5('$mdp') and type='u'";
     $result=mysqli_query(bdconnect(),$requete);
     $reponse = mysqli_num_rows($result);
     return $reponse;
 }
+
 function verifLogUtilisateur($nom,$mdp)
 {   
     $rep=array();
     if(isUtilisateur($nom,$mdp)==1)
     {
-        $requete ="select* from The_Connection where nomUser = '$nom' and motDePasse = MD5('$mdp') and type='u'";
+        $requete ="select * from The_Connection where nomUser = '$nom' and motDePasse = MD5('$mdp') and type='u'";
         $result=mysqli_query(bdconnect(),$requete);
         $admin=mysqli_fetch_assoc($result);
         $rep['info']=$admin;

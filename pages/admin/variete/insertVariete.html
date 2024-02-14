@@ -1,0 +1,32 @@
+<form class="form-perso" id="formEntite">
+    <h4 class="text-center">Insérer une nouvelle variété</h4>
+    <input type="hidden" name="nomTable" value="The_Variete">
+    <div class="input py-3">
+        <input name="nom" type="text" class="form-control input-perso" placeholder="Nom">
+    </div>
+    <div class="input py-3">
+        <input name="occupation" type="text" class="form-control input-perso" placeholder="Occupation">
+    </div>
+    <div class="input py-3">
+        <input name="rendement" type="text" class="form-control input-perso" placeholder="Rendement">
+    </div>
+    <div class="input py-3">
+        <input name="prixVente" type="text" class="form-control input-perso" placeholder="Prix de vente">
+    </div>
+    <div class="input py-3 text-center">
+        <input type="submit" class="bouton-perso" value="Confirmer">
+    </div>
+</form>
+
+<script type="text/javascript">
+
+    window.addEventListener("load", function () {
+        var form = document.getElementById("formEntite");
+    
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            insert(form);
+        });
+    });
+    
+</script>

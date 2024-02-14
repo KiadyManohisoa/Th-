@@ -1,0 +1,75 @@
+<form class="form-perso" id="formEntite">
+    <h4 class="text-center">Saisir une cueillette</h4>
+    <input type="hidden" name="nomTable" value="The_Cueillette">
+    
+    <div class="input py-3">
+        <input name="dateCueillette" type="date" class="form-control input-perso" placeholder="Date de cueillette">
+    </div>
+    
+    <div class="input py-3">
+      <input name="poids" type="text" class="form-control input-perso" placeholder="Poids">
+    </div>
+    
+    <div class="input py-3">
+      <label for="exampleInputEmail1" class="form-label">Choix cueilleurs : </label>
+      <select name="idCueilleur" class="form-select input-perso" placeholder="Poids" id="cueilleur">
+        
+      </select>
+    </div>
+
+    <div class="input py-3">
+      <label for="exampleInputEmail1" class="form-label">Numéro parcelle : </label>
+      <select name="idParcelle" class="form-select input-perso" placeholder="idParcelle" id="parcelle">
+      </select>
+    </div>
+
+    <div class="input py-3 text-center">
+        <input type="submit" class="bouton-perso" value="Confirmer">
+    </div>
+</form>
+
+<script>
+    window.addEventListener("load", function () { 
+        
+    //liste des cueilleurs
+      var xhr = getXhr();
+      xhr.onreadystatechange = function () {
+        if(xhr.readyState==4) {
+          if(xhr.status==200) {
+            var retour = JSON.parse(xhr.responseText);
+            var selectElt = document.getElementById("cueilleur");
+            generateOptions(retour,selectElt,"id","nom");
+          }
+        }
+      };
+  
+      xhr.open("GET","traitList.php?nomTable=The_Cueilleur",false);
+  
+      xhr.send(null);
+
+      //liste des parcelles 
+      var xhr = getXhr();
+      xhr.onreadystatechange = function () {
+        if(xhr.readyState==4) {
+          if(xhr.status==200) {
+            var retour = JSON.parse(xhr.responseText);
+            var selectElt = document.getElementById("parcelle");
+            generateOptions(retour,selectElt,"id","id");
+          }
+        }
+      };
+  
+      xhr.open("GET","traitList.php?nomTable=The_Parcelle",false);
+  
+      xhr.send(null);
+
+      //saisie cueillette à condition poids suffisant
+      var form = document.getElementById("formEntite");
+    
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            insert(form);
+        });
+  
+    });
+</script>

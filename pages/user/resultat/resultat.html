@@ -1,0 +1,65 @@
+<div class="row">
+    <form class="form-perso" id="formEntite">
+        <h4 class="text-center">Rechercher à partir d'une date</h4>
+        <input type="hidden" name="nomTable" value="The_Cueilleur">
+        <div class="input py-3">
+            <input type="date" name="dateMin" class="form-control input-perso" placeholder="Nom cueilleur">
+        </div>
+        <div class="input py-3">
+            <input type="date" name="dateMax" class="form-control input-perso" placeholder="Nom cueilleur">
+        </div>
+        <div class="input py-3 text-center">
+            <input type="submit" class="bouton-perso" value="Confirmer">
+        </div>
+    </form>
+</div>
+
+<div class="row mt-5 bg-white" id="toHide" style="display:none;">
+
+    <div class="col-6">
+        <p>Total Poids cueilli depuis le <span id="date"></span></p>
+        <h4><span id="totalPoids"></span> kg</h4>
+    </div>
+
+    <div class="col-6">
+        <p>Prix de revient par kilogramme</span></p>
+        <h4><span id="revientparKg"></span>Ar/kg</h4>
+    </div>
+
+    <div class="col-6">
+        <p>Montant des Ventes</p>
+        <h4> <span id="montantVente"> Ar</span> </h4>
+    </div>
+
+    <div class="col-6">
+        <p>Montant des Dépenses</p>
+        <h4> <span id="depenses"> Ar</span> </h4>
+    </div>
+
+    <div class="col-6">
+        <p>Bénéfice</p>
+        <h4> <span id="benefice"> Ar</span> </h4>
+    </div>
+
+    <div class="col-6">
+        
+    </div>
+
+    <div class="col-12">
+        <table class="table table-responsive" id="tablePoidsRestant">   
+    </table>
+</div>
+
+<script>
+    window.addEventListener("load", function () { 
+        
+        //recherche via la date 
+        var form = document.getElementById("formEntite");
+        form.addEventListener("submit", function (event) {
+        event.preventDefault();
+            researchByDate(form);
+        });
+    
+    });
+  
+  </script>

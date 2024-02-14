@@ -1,0 +1,48 @@
+<form class="form-perso" id="formEntite">
+    <h4 class="text-center">Insérer une nouvelle parcelle</h4>
+    <input type="hidden" name="nomTable" value="The_Parcelle">
+    <div class="input py-3">
+        <input name="surface" type="text" class="form-control input-perso" placeholder="Surface">
+    </div>
+    <div class="input py-3">
+      <label for="exampleInputEmail1" class="form-label">Choix variétés : </label>
+        <select name="idVariete" class="form-select" id="variete" >
+            
+        </select>
+    </div>
+    <div class="input py-3">
+        <input name="dateDebutPlantation" type="date" class="form-control input-perso" placeholder="Surface">
+    </div>
+    <div class="input py-3 text-center">
+        <input type="submit" class="bouton-perso" value="Confirmer">
+    </div>
+</form>
+
+<script>
+    window.addEventListener("load", function () { 
+        
+    //liste variété dispo
+      var xhr = getXhr();
+      xhr.onreadystatechange = function () {
+        if(xhr.readyState==4) {
+          if(xhr.status==200) {
+            var retour = JSON.parse(xhr.responseText);
+            var selectElt = document.getElementById("variete");
+            generateOptions(retour,selectElt,"id","nom");
+          }
+        }
+      };
+  
+      xhr.open("GET","traitList.php?nomTable=The_Variete",false);
+  
+      xhr.send(null);
+
+      var form = document.getElementById("formEntite");
+    
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            insert(form);
+        });
+  
+    });
+</script>

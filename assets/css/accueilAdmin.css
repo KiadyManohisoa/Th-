@@ -1,0 +1,112 @@
+:root{
+    --backgroundOne: rgb(25,25,25);
+    --backgroundTwo: rgb(40,40,40);
+    --semitransparentborder: rgba(25,25,25,.2);
+    --reducedText: rgba(25,25,25,.7);
+    /* #A1C4FD → #C2E9FB */
+    /* #764BA2 → #667EEA */
+    /* #FF61D2 → #FE9090 */
+    /* #D8B5FF → #1EAE98 */
+    /* #11998E → #38EF7D */
+}
+
+form{
+    box-shadow: white 0 0 10px;
+}
+
+a{
+    text-decoration: none;
+}
+
+#header .navbar{
+    background: linear-gradient(to right,var(--backgroundOne),var(--backgroundTwo));
+    box-shadow: var(--backgroundTwo) 0 0 20px;
+}
+
+.personnalisedLink{
+    color: white;
+    background: var(--backgroundOne);
+    opacity: .7;
+    padding: 1.5vh 2vw;
+    transition: all .2s;
+    border-radius: 20px;
+}
+
+.personnalisedLink:hover{
+    padding: 1.5vh 3vw;
+    opacity: .8;
+    transition: all .5s;
+    background: var(--backgroundTwo);
+}
+
+.personnalisedLinkButton{
+    padding: 1.5vh 2vw;
+    opacity: .7;
+    background-color: var(--backgroundOne);
+    color: white;
+    border-radius: 20px;
+    border: none;
+}
+
+.secondaryBar{
+    border-bottom: var(--semitransparentborder) 1px solid;
+}
+
+.bouton-perso{
+    background-color: var(--backgroundTwo);
+    border: none;
+    outline: none;
+    color: white;
+    padding: 1vh 2vw;
+}
+
+.bouton-perso:hover{
+    background-color: rgba(50,100,255,1);
+    transition: all;
+    padding: 2vh 3vw;
+    transition: all .5s;
+}
+
+.form-perso{
+    padding: 7vh 4vw;
+    border-radius: 20px;
+    box-shadow: rgba(25,25,25,.2) 0 0 20px;
+}
+
+h2{
+    border-bottom: var(--semitransparentborder) solid 1px;
+}
+h4{
+
+}
+
+.subtitle{
+    color: var(--reducedText);
+}
+
+/* personnalisation inputs */
+
+.form-control:focus,.form-select:focus{
+    outline: none;
+    border: 1px solid rgba(50,100,255,1);
+    box-shadow: rgba(50,100,255,1) 0 0 5px;
+}
+
+.form-perso input::placeholder{
+    position: relative;
+    bottom:0;
+}
+
+.form-perso input:focus::placeholder{
+    color: rgba(50,100,255,1);
+    bottom: 50px;
+    transition: all .5s;
+}
+
+.form-perso input, .form-perso select{
+    padding: 2vh 2vw;   
+}
+
+#encadrFooter{
+    margin-top: 50vh;
+}
