@@ -1,0 +1,68 @@
+<form class="form-perso" id="formEntite">
+    <h4 class="text-center">Insérer une nouvelle saison</h4>
+    <input type="hidden" name="nomTable" value="The_MoisSaison">
+
+    <div class="input py-3">
+        <label for="exampleInputEmail1" class="form-label"> Date de changement </label>
+        <input name="dateMouvement" type="date" class="form-control input-perso" placeholder="Saison">
+    </div>
+
+    <div class="input py-3" id="divCheck">
+      <label for="exampleInputEmail1" class="form-label">Choix mois de regénération : </label>
+
+    </div>
+
+    <div class="input py-3 text-center">
+        <input type="submit" class="bouton-perso" value="Sauvegarder">
+    </div>
+</form>
+
+<script>
+    window.addEventListener("load", function () { 
+        
+    //génération automatique des checkbox de mois 
+    var divCheckbox = document.getElementById("divCheck");
+    generateCheckBoxSaison(divCheckbox);
+
+    var form = document.getElementById("formEntite");
+    
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            var checkBoxes = document.querySelectorAll('input[name="mois"]:checked');
+            var selectedMonths = [];
+            checkBoxes.forEach(function(checkbox) {
+                selectedMonths.push(checkbox.value);
+            });
+
+            //Accédez à l'élément form …
+            var form = document.getElementById("formEntite");
+  
+            // Liez l'objet FormData et l'élément form
+            var formData = new FormData(form);
+
+            formData.append('json',JSON.stringify(selectedMonths));
+
+            //send by xhr 
+            var xhr = getXhr();
+            xhr.onreadystatechange = function () {
+              if(xhr.readyState==4) {
+                if(xhr.status==200) {
+                    var retour = JSON.parse(xhr.responseText);
+                    if(retour === true) {
+                      alert('Insertion réussie');
+                    }
+                    else if (retour ===false) {
+                      alert('Erreur d\'insertion');
+                    }
+                }
+              }
+            };
+            
+            xhr.open("POST", "saison/traitInsertSaison.php", true);
+
+            xhr.send(formData);
+
+        });
+  
+    });
+</script>

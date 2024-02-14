@@ -23,6 +23,7 @@
                 </div>
                 <div id="navigationBar" class="justify-content-center collapse navbar-collapse col">
                     <div class="navbar-nav nav-fill">
+                        <a href="modele_accueilAdmin.php?folder=saison&page=insertSaison" aria-expanded="false" class="nav-link dropdown-toggle">Saison</a>
                         <a href="#tabVariete" data-bs-toggle="collapse" aria-controls="tabVariete" aria-expanded="false" class="nav-link dropdown-toggle">Variété</a>
                         <a href="#tabParcelle" data-bs-toggle="collapse" aria-controls="tabParcelle" aria-expanded="false" class="nav-link dropdown-toggle">Parcelle</a>
                         <a href="#tabCueilleur" data-bs-toggle="collapse" aria-controls="tabCueilleur" aria-expanded="false" class="nav-link dropdown-toggle">Cueilleur</a>

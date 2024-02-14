@@ -1,5 +1,12 @@
 <?php 
 
+    function selectMaxId () {
+        $query = "select max(id) as id from The_Saison";
+        $result = mysqli_query(bdconnect(),$query);
+        $rep = mysqli_fetch_assoc($result);
+        return $rep['id'];
+    }
+
     function selectAll($tabName) {
         $query = "select * from $tabName";
         $result = mysqli_query(bdconnect(), $query);
