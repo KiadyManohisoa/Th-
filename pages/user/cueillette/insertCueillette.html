@@ -63,12 +63,13 @@
   
       xhr.send(null);
 
-    //   var form = document.getElementById("formEntite");
+      //saisie cueillette à condition poids suffisant
+      var form = document.getElementById("formEntite");
     
-    //     form.addEventListener("submit", function (event) {
-    //         event.preventDefault();
-    //         insert(form);
-    //     });
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            insert(form);
+        });
   
     });
 </script>

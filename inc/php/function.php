@@ -3,4 +3,6 @@
     include 'admin.php'; 
     include 'utilisateur.php';
     include 'crud.php';
+    include 'cueillette.php';
+    include 'resultat.php';
 ?>

@@ -56,3 +56,10 @@ CREATE TABLE The_Cueillette (
    idCueilleur INT REFERENCES The_Cueilleur(id),
    idParcelle INT REFERENCES The_Parcelle(id) 
 );
+
+CREATE TABLE The_Depense (
+   id INT PRIMARY KEY AUTO_INCREMENT,
+   dateDepense DATE NOT NULL,
+   idCatDepense INT REFERENCES The_CatDepense(id),
+   montant DECIMAL(15,2) NOT NULL
+);
