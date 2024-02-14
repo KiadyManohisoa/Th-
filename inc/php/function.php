@@ -14,9 +14,6 @@
     include 'crud.php';
     include 'cueillette.php';
     include 'resultat.php';
-<<<<<<< HEAD
-    include 'payement.php';
-=======
     include 'bonus.php';
->>>>>>> 09b6ea12e9884d9ebcf78b6eb5e69b27fd76f801
+    include 'payement.php';
 ?>
